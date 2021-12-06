@@ -10,11 +10,6 @@ function Login() {
             <div><button className='login-button'>Login</button></div>
         </div>
     )
-function Login(props){
-
-  return(
-    <div>LoginPage</div>
-  )
 }
 
 export default Login;
