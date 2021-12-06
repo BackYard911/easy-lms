@@ -1,0 +1,24 @@
+.login-button{
+
+    color: white;
+    background-color: #007bff;
+    border: gray 1px solid;
+     display: block;
+    padding: 15px 32px;
+    margin: 0 auto;
+    border-radius: 9px;
+    font-size: 120%;
+    size:30px
+}
+
+.button{
+    color: white;
+    background-color: #007bff;
+    border: gray 1px solid;
+    padding: 8px 12px;
+    border-radius: 9px;
+    font-size: 75%;
+    size:15px;
+    margin-right: 15%;
+    margin-bottom: 10px;;
+}
