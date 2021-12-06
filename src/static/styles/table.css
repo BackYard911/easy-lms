@@ -1,0 +1,30 @@
+.table-assign{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+.table-assign thead tr {
+    background-color: #3b5998;
+    color: #ffffff;
+    text-align: left;
+}
+.table-assign th,
+.table-assign td {
+    padding: 12px 15px;
+}
+
+.table-assign tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+.table-assign tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table-assign tbody tr:last-of-type {
+    border-bottom: 2px solid #3b5998;
+}
+

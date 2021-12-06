@@ -1,6 +1,52 @@
 .div-input{
     margin: 45px;
 }
+.div-assign-1{
+    margin: 20px;
+    padding-left: 130px;
+}
+.div-assign-2{
+    margin: 20px;
+    padding-left: 130px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(240, 236, 236);
+    background-clip:padding-box;
+}
+.assign-input{
+    display: inline;
+    position: inherit;
+    margin-left: auto;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 9px;
+    border: gray 1px solid;
+    width: 30%;
+    height: 26px;
+    
+}
+.student-input{
+    display: inline;
+    position: absolute;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 9px;
+    border: gray 1px solid;
+    width: 40%;
+    height: 26.5px;
+    margin-left: 140px;
+}
+
+.table-input{
+    display: inline;
+    padding: 8px;
+    font-size: 20px;
+    border-radius: 9px;
+    border: gray 1px solid;
+    width: 35px;
+    height: 25px;
+}
+
 
 .login-input{
     display: block;
@@ -11,4 +57,15 @@
     border-radius: 9px;
     border: gray 1px solid;
     width: 20%;
+}
+.p-assign{
+    display: inline-block;
+    position: absolute;
+    color: gray;
+    font-size: 15px;
+    margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.add-student-submit{
+
 }
