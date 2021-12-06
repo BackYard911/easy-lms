@@ -20,16 +20,16 @@
 
 .radio-div{
    margin: auto;
-   width: 30%
+   text-align: center;
+   margin-top: 20px;
 }
 
 .login-radio{
-    margin-right: -5px;
-    margin-left: 65px;
+
     vertical-align: bottom;
     width: 1.3rem;
     height: 1.3rem;
-    margin-right: -5px;
+    margin-left: 0 20px;
     border-radius: 10%;
     border-style: solid;
     border-width: 0.01rem;
@@ -38,6 +38,12 @@
 
 .login-radio-label{
     font-size: 20px;
+    margin: 0 5px;
+}
+
+.radio-group{
+    display: inline-block;
+    margin: 0 20px;
 }
 
 .header-logo{

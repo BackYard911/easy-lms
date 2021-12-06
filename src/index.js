@@ -11,11 +11,15 @@ import Courses from './js/react-components/layout/student/Courses';
 import ViewAllCourses from './js/react-components/layout/instructor/ViewAllCourse';
 import ViewCourse from './js/react-components/layout/instructor/ViewCourse';
 import AddCourse from './js/react-components/layout/instructor/AddCourse';
+import { BrowserRouter } from 'react-router-dom';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <AddAssignment/>
+
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
