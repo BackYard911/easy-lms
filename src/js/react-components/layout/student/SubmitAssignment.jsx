@@ -4,8 +4,10 @@ import bookmark from "../../../../static/images/bookmark.svg";
 import bullseye from "../../../../static/images/bullseye.svg";
 import calendar from "../../../../static/images/calendar.svg";
 import pdf from "../../../../static/images/pdf.svg";
+import { getAllCourse } from "../../../api/course";
 
 function SubmitAssignment() {
+  getAllCourse();
   return (
     <div>
       <Header />

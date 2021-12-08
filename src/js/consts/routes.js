@@ -14,8 +14,18 @@ export const ROUTES = {
   viewAssignments: {
     path: "/view-assignments",
   },
-
   submitAssignments: {
     path: "/submit-assignment",
   },
+  addCourse: {
+    path: "/add-course",
+  },
+  viewCourses: {
+    path: "/courses",
+  },
+  viewCourse: {
+    path: "/courses/:id"
+  }
+
+
 }

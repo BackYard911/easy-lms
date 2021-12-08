@@ -114,3 +114,23 @@ h1{
       align-items: center;
       
   }
+
+  .no-account{
+      text-align: center;
+  }
+
+  .no-account a{
+      text-decoration: underline;
+      font-size: 18px;
+      color: #007bff;
+  }
+
+  .have-account{
+      text-align: center;
+  }
+
+  .have-account a{
+    text-decoration: underline;
+    font-size: 18px;
+    color: #007bff;
+}
