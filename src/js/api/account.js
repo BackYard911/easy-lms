@@ -8,10 +8,11 @@ export async function login(username,password){
     password
   })
   
-    localStorage.setItem("token",res.data.data.token)
-    localStorage.setItem("userData", res.data.data)
+    localStorage.setItem("token",res.data.data.token);
+    localStorage.setItem("name", res.data.data.name);
+    localStorage.setItem("role",res.data.data.role);
     console.log(localStorage.getItem("token"));
-    console.log(localStorage.getItem("userData"));
+    console.log(localStorage.getItem("name"));
     console.log(res)
     state = 1;
   } catch (error) {

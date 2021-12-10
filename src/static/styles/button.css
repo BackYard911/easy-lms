@@ -74,6 +74,11 @@
 }
 button{
     transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
 }
 button:hover{
     background-color: #3b5998;

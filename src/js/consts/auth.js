@@ -4,6 +4,7 @@ class Auth {
   }
 
   login(callback){
+    localStorage.setItem("authenticated",true);
     this.authenticated = true;
     callback();
   }

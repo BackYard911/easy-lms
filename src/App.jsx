@@ -8,6 +8,7 @@ import ViewAssignments from "./js/react-components/layout/instructor/ViewAssignm
 import SubmitAssignment from "./js/react-components/layout/student/SubmitAssignment"
 import ViewAllCourses from "./js/react-components/layout/instructor/ViewAllCourse";
 import ViewCourse from "./js/react-components/layout/instructor/ViewCourse"
+import AddCourse from "./js/react-components/layout/instructor/AddCourse"
 import { ROUTES } from "./js/consts/routes";
 import ProtectedRoute from "./js/react-components/common/ProtectedRoute";
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path={ROUTES.viewCourses.path} element={<ViewAllCourses/>} />
           </Route>
           <Route  path={ROUTES.viewCourse.path} element={<ViewCourse/>}/>
+          <Route path={ROUTES.addCourse.path} element={<AddCourse/>}/>
 
 
 
