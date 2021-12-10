@@ -23,28 +23,38 @@ function App() {
 
 
   return (
-      <LmsContext.Provider value={contextValue}>
+    <LmsContext.Provider value={contextValue}>
 
-        <Routes>
-          <Route exact path="/" element={<Login/>}/>
+      <Routes>
+        <Route exact path="/" element={<Login />} />
 
-          <Route  path={ROUTES.login.path} element={<Login/>}/>
-          <Route  path={ROUTES.signup.path} element={<SignUp/>}/>
-          <Route  path={ROUTES.addAssignment.path} element={<AddAssignment/>}/>
-          <Route  path={ROUTES.viewAssignments.path} element={<ViewAssignments/>}/>
-          <Route  path={ROUTES.submitAssignments.path} element={<SubmitAssignment/>}/>
-          <Route  path={ROUTES.addAssignment.path} element={<AddAssignment/>}/>
-          <Route  path={ROUTES.viewCourses.path} element={<ProtectedRoute/>}>
-            <Route path={ROUTES.viewCourses.path} element={<ViewAllCourses/>} />
-          </Route>
-          <Route  path={ROUTES.viewCourse.path} element={<ViewCourse/>}/>
-          <Route path={ROUTES.addCourse.path} element={<AddCourse/>}/>
+        <Route path={ROUTES.login.path} element={<Login />} />
+        <Route path={ROUTES.signup.path} element={<SignUp />} />
+        <Route path={ROUTES.addAssignment.path} element={<ProtectedRoute />}>
+          <Route path={ROUTES.addAssignment.path} element={<AddAssignment />} />
+        </Route>
+        <Route path={ROUTES.viewAssignments.path} element={<ProtectedRoute />}>
+          <Route path={ROUTES.viewAssignments.path} element={<ViewAssignments />} />
+        </Route>
+        <Route path={ROUTES.submitAssignments.path} element={<ProtectedRoute />}>
+          <Route path={ROUTES.submitAssignments.path} element={<SubmitAssignment />} />
+        </Route>
+        <Route path={ROUTES.viewCourses.path} element={<ProtectedRoute />}>
+          <Route path={ROUTES.viewCourses.path} element={<ViewAllCourses />} />
+        </Route>
+        <Route path={ROUTES.viewCourse.path} element={<ProtectedRoute />}>
+          <Route path={ROUTES.viewCourse.path} element={<ViewCourse />} />
+        </Route>
+        <Route path={ROUTES.addCourse.path} element={<ProtectedRoute />}>
+          <Route path={ROUTES.addCourse.path} element={<AddCourse />} />
+        </Route>
 
 
 
-        </Routes>
 
-      </LmsContext.Provider>
+      </Routes>
+
+    </LmsContext.Provider>
   )
 }
 
