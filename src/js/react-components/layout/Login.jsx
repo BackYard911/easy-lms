@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react/cjs/react.development';
 import logo from '../../../static/images/logo.png';
 import { login } from '../../api/account';
+import auth from '../../consts/auth';
 
 
 function Login() {
@@ -13,12 +14,16 @@ function Login() {
     async function loginProcess(){
         const res = await login(username,password);
         if(res){
-            navigate("/courses")
             console.log(res,"is here");
+            auth.login(()=>{
+                navigate("/courses")
+            })
+            console.log(auth.isAuthenticated());
         }
         else{
             window.alert("wrong credentials");
         }
+        
 
     }
 

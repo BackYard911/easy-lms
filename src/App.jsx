@@ -9,6 +9,7 @@ import SubmitAssignment from "./js/react-components/layout/student/SubmitAssignm
 import ViewAllCourses from "./js/react-components/layout/instructor/ViewAllCourse";
 import ViewCourse from "./js/react-components/layout/instructor/ViewCourse"
 import { ROUTES } from "./js/consts/routes";
+import ProtectedRoute from "./js/react-components/common/ProtectedRoute";
 function App() {
 
   const [userInfo, setUserInfo] = useState({});
@@ -32,7 +33,9 @@ function App() {
           <Route  path={ROUTES.viewAssignments.path} element={<ViewAssignments/>}/>
           <Route  path={ROUTES.submitAssignments.path} element={<SubmitAssignment/>}/>
           <Route  path={ROUTES.addAssignment.path} element={<AddAssignment/>}/>
-          <Route  path={ROUTES.viewCourses.path} element={<ViewAllCourses/>}/>
+          <Route  path={ROUTES.viewCourses.path} element={<ProtectedRoute/>}>
+            <Route path={ROUTES.viewCourses.path} element={<ViewAllCourses/>} />
+          </Route>
           <Route  path={ROUTES.viewCourse.path} element={<ViewCourse/>}/>
 
 
