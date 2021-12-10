@@ -8,7 +8,7 @@ export const ROUTES = {
   },
   
   addAssignment: {
-    path: "/add-assignment",
+    path: "/courses/:id/add-assignment",
   },
 
   viewAssignments: {

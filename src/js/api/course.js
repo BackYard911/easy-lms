@@ -3,13 +3,14 @@ import axios from "axios";
 axios.defaults.headers.common = {'Authorization': `Bearer ${localStorage.getItem("token")}`}
 
 
-export function getAllCourse(){
-  axios.get(`https://easy-lms.herokuapp.com/api/v1/courses`
-  ).then(res =>{
-    console.log(res);
-    console.log("aloo")
-  });
-  
+export async function getAllCourse(){
+  const res = axios.get(`https://easy-lms.herokuapp.com/api/v1/courses`)
+  return res;
+}
+
+export async function getCourse(id){
+  const res = axios.get(`https://easy-lms.herokuapp.com/api/v1/courses/${id}`);
+  return res;
 }
 
 export async function addCourse(title,description){
@@ -27,4 +28,16 @@ export async function addCourse(title,description){
     console.log(error);
   }
   return res;
+}
+
+export async function addStudent(email,courseId){
+  let res;
+  try {
+    res = axios.post(`https://easy-lms.herokuapp.com/api/v1/courses/${courseId}`,{
+      email
+    });
+    window.alert("Student added successfully");
+  } catch (error) {
+    console.log("something went wrong");
+  }
 }

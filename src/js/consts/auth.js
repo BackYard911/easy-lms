@@ -10,11 +10,13 @@ class Auth {
   }
 
   logout(callback){
+    localStorage.removeItem("authenticated");
     this.authenticated = false;
     callback();
   }
 
   isAuthenticated(){
+    this.authenticated = localStorage.getItem("authenticated");
     return this.authenticated;
   }
 }

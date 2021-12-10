@@ -105,6 +105,10 @@ h1{
     width: 100%; 
     margin-left: 140px;
   }
+
+  .class-container h2{
+      cursor: pointer;
+  }
   .class-container h2:hover {
     transition-duration: 0.4s;
     color:#007bff;

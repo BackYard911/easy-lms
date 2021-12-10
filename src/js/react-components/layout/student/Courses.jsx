@@ -1,64 +1,55 @@
+import { useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
+import { getAllCourse } from "../../../api/course.js";
 import Card from "../../common/Card.jsx";
 import Header from "../../common/Header.jsx";
+import {ROUTES} from "../../../consts/routes"
 function Courses() {
+
+  const [courses, setCourses] = useState([]);
+
+  const navigate = useNavigate();
+
+  async function getAllCoursesProcess(){
+    const data = await getAllCourse();
+    console.log(data.data.data);
+  }
+
+  // const courses  = getAllCoursesProcess();
+
+  useEffect(()=>{
+    getAllCourse().then((res)=>{
+      setCourses(res.data.data);
+    })
+  },[])
+
+  
+
   return (
     <div>
       <Header />
       <h1>All Courses</h1>
-      <div class="cards-container">
-        <Card>
-          <div class="course-unit">
-             <div class="course-title">
-              <h2 class="course-name">Course Name</h2>
-            </div>
+      <div className="cards-container">
 
-            <p class="course-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
-              eaque harum, perferendis dolore aut molestiae ullam laboriosam
-              quos impedit atque quaerat mollitia beatae tempora, officia, ipsa
-              quia explicabo dignissimos modi!
-            </p>
-          </div>
-        </Card>
-        <Card>
-          <div class="course-unit">
-            <div class="course-title">
-              <h2 class="course-name">Course Name</h2>
-            </div>
-              <p class="course-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
-                eaque harum, perferendis dolore aut molestiae ullam laboriosam
-                quos impedit atque quaerat mollitia beatae tempora, officia,
-                ipsa quia explicabo dignissimos modi!
+        {
+          courses.map((course)=>(
+            <Card  key={course.id}>
+            <div onClick={()=>{
+            navigate(`${course.id}`)
+            console.log("pls")
+            }} className="course-unit">
+               <div className="course-title">
+                <h2 className="course-name">{course.title}</h2>
+              </div>
+              <p className="course-description">
+                {course.description}
               </p>
-          </div>
-        </Card>
-        <Card>
-          <div class="course-unit">
-            <div class="course-title">
-              <h2 class="course-name">Course Name</h2>
             </div>
-            <p class="course-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
-              eaque harum, perferendis dolore aut molestiae ullam laboriosam
-              quos impedit atque quaerat mollitia beatae tempora, officia, ipsa
-              quia explicabo dignissimos modi!
-            </p>
-          </div>
-        </Card>
-        <Card>
-          <div class="course-unit">
-            <div class="course-title">
-              <h2 class="course-name">Course Name</h2>
-            </div>
-              <p class="course-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
-                eaque harum, perferendis dolore aut molestiae ullam laboriosam
-                quos impedit atque quaerat mollitia beatae tempora, officia,
-                ipsa quia explicabo dignissimos modi!
-              </p>
-          </div>
-        </Card>
+          </Card>
+          )
+          ) 
+        }
       </div>
     </div>
   );
