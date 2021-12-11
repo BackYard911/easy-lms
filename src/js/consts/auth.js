@@ -1,3 +1,5 @@
+import axios from "axios";
+
 class Auth {
   constructor() {
     this.authenticated = false;
@@ -5,12 +7,14 @@ class Auth {
 
   login(callback){
     localStorage.setItem("authenticated",true);
+    axios.defaults.headers.common = {'Authorization': `Bearer ${localStorage.getItem("token")}`}
     this.authenticated = true;
     callback();
   }
 
   logout(callback){
     localStorage.removeItem("authenticated");
+    localStorage.removeItem("token");
     this.authenticated = false;
     callback();
   }

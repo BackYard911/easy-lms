@@ -31,3 +31,16 @@ export async function getAssignments(courseId){
   }
   return res;
 }
+
+export async function getAssignment(assId){
+  let res;
+  try {
+    res = await axios.get((`https://easy-lms.herokuapp.com/api/v1/assignments/${assId}`));
+  } catch (error) {
+    window.alert("something went wrong");
+  }
+  return res;
+
+
+
+}

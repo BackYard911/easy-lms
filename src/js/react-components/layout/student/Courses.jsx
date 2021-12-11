@@ -21,10 +21,10 @@ function Courses() {
   useEffect(()=>{
     getAllCourse().then((res)=>{
       setCourses(res.data.data);
+      console.log(res);
     })
   },[])
 
-  
 
   return (
     <div>

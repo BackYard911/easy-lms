@@ -21,9 +21,6 @@ function AddAssignment() {
   async function addAssignmentProcess(){
     console.log(title,description,points,deadline,id)
     let timeStamp = Date.parse(deadline);
-    timeStamp /= 1000;
-    timeStamp = Math.floor(timeStamp);
-    console.log(timeStamp)
     const res = await addAssignment(title,description,points,timeStamp,id);
     console.log(res);
   }

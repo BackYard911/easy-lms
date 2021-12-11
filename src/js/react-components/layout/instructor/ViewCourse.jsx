@@ -9,7 +9,7 @@ function ViewCourse() {
 
   const [course, setCourse] = useState({});
   const [assignments, setAssignments] = useState([]);
-  const [email, setEmails] = useState("");
+  const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
 
@@ -33,7 +33,6 @@ function ViewCourse() {
 
 
 
-
   return (
     <div>
       <Course title={course.title} description={course.description} assignments={assignments} />
@@ -45,6 +44,7 @@ function ViewCourse() {
           type="text"
           className="student-input"
           id=""
+          onChange={(e)=> setEmail(e.target.value)}
           placeholder="Student Email"
         />
         <button onClick={addStudentProcess} className="student-add-button">Add Student</button>

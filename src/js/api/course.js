@@ -1,7 +1,5 @@
 import axios from "axios";
 
-axios.defaults.headers.common = {'Authorization': `Bearer ${localStorage.getItem("token")}`}
-
 
 export async function getAllCourse(){
   const res = axios.get(`https://easy-lms.herokuapp.com/api/v1/courses`)
@@ -33,7 +31,7 @@ export async function addCourse(title,description){
 export async function addStudent(email,courseId){
   let res;
   try {
-    res = axios.post(`https://easy-lms.herokuapp.com/api/v1/courses/${courseId}`,{
+    res = await axios.post(`https://easy-lms.herokuapp.com/api/v1/courses/${courseId}/students`,{
       email
     });
     window.alert("Student added successfully");

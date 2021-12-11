@@ -1,7 +1,19 @@
 import Header from "../../common/Header";
 import pdf from "../../../../static/images/pdf.svg";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react/cjs/react.development";
+import { getSubmissions } from "../../../api/assignment-submission";
 
 function ViewAssignment() {
+
+  const {id, assId} = useParams();
+  
+  useEffect(()=>{
+    getSubmissions(assId).then((res)=>{
+      console.log(res)
+    });
+  })
+
   return (
     <div>
       <Header />
