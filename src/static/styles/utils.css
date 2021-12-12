@@ -12,6 +12,7 @@
     padding: 5px;
     align-items: center;
     transition-duration: 0.4s;
+    cursor: pointer;
 }
 .class-container .assign-logo
 {
@@ -105,6 +106,10 @@ h1{
     width: 100%; 
     margin-left: 140px;
   }
+
+  .class-container h2{
+      cursor: pointer;
+  }
   .class-container h2:hover {
     transition-duration: 0.4s;
     color:#007bff;
@@ -114,3 +119,23 @@ h1{
       align-items: center;
       
   }
+
+  .no-account{
+      text-align: center;
+  }
+
+  .no-account a{
+      text-decoration: underline;
+      font-size: 18px;
+      color: #007bff;
+  }
+
+  .have-account{
+      text-align: center;
+  }
+
+  .have-account a{
+    text-decoration: underline;
+    font-size: 18px;
+    color: #007bff;
+}

@@ -8,14 +8,24 @@ export const ROUTES = {
   },
   
   addAssignment: {
-    path: "/add-assignment",
+    path: "/courses/:id/add-assignment",
   },
 
   viewAssignments: {
-    path: "/view-assignments",
+    path: "/courses/:id/view-assignments/:assId",
   },
-
   submitAssignments: {
-    path: "/submit-assignment",
+    path: "/courses/:id/submit-assignment/:assId",
   },
+  addCourse: {
+    path: "/add-course",
+  },
+  viewCourses: {
+    path: "/courses",
+  },
+  viewCourse: {
+    path: "/courses/:id"
+  }
+
+
 }

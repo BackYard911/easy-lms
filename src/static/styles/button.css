@@ -5,7 +5,7 @@
     border: gray 1px solid;
      display: block;
     padding: 15px 32px;
-    margin: 0 auto;
+    margin: 20px auto;
     border-radius: 9px;
     font-size: 120%;
     size:30px
@@ -42,9 +42,6 @@
     padding: 10px 50px;
     border-radius: 9px;
     font-size: 120%;
-    margin-left: 700px;
-    display:flex;
-    justify-content: flex-end;
     size: 10px;
 }
 .course-add-button{
@@ -74,6 +71,11 @@
 }
 button{
     transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
 }
 button:hover{
     background-color: #3b5998;
