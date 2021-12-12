@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import { getAssignment } from "../../../api/assignment";
 import { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
-import { addSubmission } from "../../../api/assignment-submission";
+import { addSubmission, getSubmissions } from "../../../api/assignment-submission";
 
 function SubmitAssignment() {
 
@@ -17,6 +17,7 @@ function SubmitAssignment() {
   
   const [assignment, setAssignment] = useState({});
   const [assFile, setAssFile] = useState(null);
+  const [submission, setSubmission] = useState({});
   
   async function uploadAssignment(){
     let formData = new FormData();
@@ -26,11 +27,16 @@ function SubmitAssignment() {
 
     const res = await addSubmission(assId, formData);
   }
+
+
   
 
   useEffect(()=>{
     getAssignment(assId).then((res)=>{
       setAssignment(res.data.data)
+    });
+    getSubmissions(assId).then((res)=>{
+      setSubmission(res.data.data);
     })
   },[]);
 
@@ -52,7 +58,7 @@ function SubmitAssignment() {
             <span className="assign-logo">
               <img className="" src={bullseye} alt="" />
             </span>
-            <p className="p-assign">{assignment.points} Marks</p>
+            <p className="p-assign">{submission?.points ? submission.points : "-"} / {assignment.points} Marks</p>
           </div>
           <div className="div-assign-1">
             <span className="assign-logo">

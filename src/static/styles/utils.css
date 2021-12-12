@@ -12,6 +12,7 @@
     padding: 5px;
     align-items: center;
     transition-duration: 0.4s;
+    cursor: pointer;
 }
 .class-container .assign-logo
 {

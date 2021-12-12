@@ -1,18 +1,39 @@
 import Header from "../../common/Header";
 import pdf from "../../../../static/images/pdf.svg";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react/cjs/react.development";
-import { getSubmissions } from "../../../api/assignment-submission";
+import { useEffect, useState } from "react/cjs/react.development";
+import { getFile, getSubmissions, gradeSubmission } from "../../../api/assignment-submission";
+import { getAssignment } from "../../../api/assignment";
 
 function ViewAssignment() {
 
-  const {id, assId} = useParams();
-  
+  const { id, assId } = useParams();
+
+  const [submissions, setSubmissions] = useState([]);
+  const [assignment, setAssignment] = useState({});
+
   useEffect(()=>{
     getSubmissions(assId).then((res)=>{
-      console.log(res)
+      
+      setSubmissions(res.data.data);
     });
-  })
+       getAssignment(assId).then((res)=>{
+         setAssignment(res.data.data);
+       })
+  },[])
+
+  async function gradeSubmissionProcess(points,submissionId){
+    let res = await gradeSubmission(points,submissionId)
+  }
+
+  async function downloadFile(submission){
+    const url = await getFile(submission.id);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', submission.fileName);
+    link.click();
+    window.URL.revokeObjectURL(url);
+  }
 
   return (
     <div>
@@ -23,44 +44,30 @@ function ViewAssignment() {
             <tr>
               <th>Name</th>
               <th>Email</th>
-              <th>State</th>
+              {/* <th>State</th> */}
               <th>Grade</th>
               <th>File</th>
             </tr>
           </thead>
           <tbody>
-          <tr>
-              <td>Dom</td>
-              <td>17p6031@eng.asu.edu.eg</td>
-              <td>Submitted</td>
-              <td>
-                <input type="text" className="table-input" id="" />
-                <button className="grade-button">Save</button>
-              </td>
-              <td>
-                <a>
-                  <span className="assign-logo">
-                    <img className="" src={pdf} alt="download pdf" />
-                  </span>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>Lilwel</td>
-              <td>69@eng.asu.edu.eg</td>
-              <td>Late</td>
-              <td>
-                <input type="text" className="table-input" id="" />
-                <button className="grade-button">Save</button>
-              </td>
-              <td>
-                <a>
-                  <span className="assign-logo">
-                    <img className="" src={pdf} alt="download pdf" />
-                  </span>
-                </a>
-              </td>
-            </tr>
+            {submissions.map((submission) => (
+              <tr key={submission.id}>
+                <td>{submission.student.name}</td>
+                <td>{submission.student.email}</td>
+                {/* <td>{calculateState(submission.submittedAt,assignment.deadline)}</td> */}
+                <td>
+                  <input type="number" onChange={(e)=> submission.points = Number(e.target.value)} className="table-input" defaultValue={submission.points} min={0} max={assignment.points} id="" />
+                  <button onClick={()=> gradeSubmissionProcess(submission.points,submission.id)} className="grade-button">Save</button>
+                </td>
+                <td>
+                  
+                    <span onClick={()=> downloadFile(submission)} className="assign-logo">
+                      <img className="" src={pdf} alt="download pdf" />
+                    </span>
+                 
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
