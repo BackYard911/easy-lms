@@ -11,9 +11,13 @@ export async function addSubmission(assId, formData){
     },
   }
     );
+    const result = await res.json();
+    if (result.message === "ERROR"){
+      throw new Error(result.errors);
+    }
     window.alert("assignment submitted successfully");
   } catch (error) {
-    window.alert("something went wrong");
+    window.alert(error);
   }
   return res;
 }

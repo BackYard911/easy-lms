@@ -6,15 +6,17 @@ import { getAllCourse } from "../../../api/course";
 function ViewAllCourses()
 {
 
-    
+    const role = localStorage.getItem("role");
 
     return(
 
         <div>
             <Courses/>
+            {role === "INSTRUCTOR" &&
             <Link to={ROUTES.addCourse.path}>
                 <button className="course-add-button">Add Course</button>
                 </Link>
+}
         </div>
     );
 

@@ -16,6 +16,8 @@ function ViewCourse() {
   const { id }= useParams();
   console.log(id);
 
+  const role = localStorage.getItem("role");
+
   async function addStudentProcess(){
     const res = await addStudent(email,id);
   }
@@ -36,6 +38,8 @@ function ViewCourse() {
   return (
     <div>
       <Course title={course.title} description={course.description} assignments={assignments} />
+      {role === "INSTRUCTOR" && 
+      <>
         <button onClick={()=>{
           navigate(`add-assignment`);
         }} className="assign-add-button">Add Assignment</button>
@@ -49,7 +53,8 @@ function ViewCourse() {
         />
         <button onClick={addStudentProcess} className="student-add-button">Add Student</button>
       </div>
-
+      </>
+    }
     </div>
   );
 }

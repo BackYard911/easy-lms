@@ -13,6 +13,10 @@
     background-color: rgb(240, 236, 236);
     background-clip:padding-box;
 }
+
+.graded{
+    background-color: rgb(204, 255, 194);
+}
 .assign-input{
     display: inline;
     position: inherit;

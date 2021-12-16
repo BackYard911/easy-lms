@@ -54,7 +54,7 @@ function SubmitAssignment() {
             </span>
             <p className="p-assign">{assignment.title}</p>
           </div>
-          <div className="div-assign-2">
+          <div className={`div-assign-2 ${submission?.points && "graded"}`}>
             <span className="assign-logo">
               <img className="" src={bullseye} alt="" />
             </span>
